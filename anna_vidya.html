@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Anna Daan & Vidya Daan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cinzel:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
+      color: #222;
+    }
+
+    .divider-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      color: #2E3A59;
+      margin-bottom: 30px;
+    }
+
+    .nav-buttons {
+      margin-bottom: 30px;
+    }
+
+    .nav-buttons button {
+      background: #004080;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 3rem;
+      margin: 10px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s ease;
+      position: relative;
+    }
+
+    .nav-buttons button::after {
+      content: '';
+      font-size: 3rem;
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    section {
+      max-width: 1300px;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column; /* Stack image and content vertically */
+      align-items: center;
+      margin: auto;
+      text-align: center;
+    }
+
+    section img {
+      width: 850px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content h2 {
+      font-size: 2.8rem;
+      font-family: 'Cinzel', serif;
+      margin-bottom: 25px;
+    }
+
+    #vidya-daan h2 { color: #C2185B; }
+    #anna-daan h2 { color: #1A237E; }
+
+    .content p {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      color: #444;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+    }
+
+    .donate-btn {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      font-size: 3rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .donate-btn:hover {
+      background: #0056b3;
+    }
+
+    .highlight {
+      color: red;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      padding: 50px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 700px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .modal-content h3 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1.2rem;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #333;
+      opacity: 1;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: black;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        flex-direction: column;
+      }
+      .nav-buttons button::after {
+        display: none;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .content h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Support Our Noble Causes</h1>
+    <div class="nav-buttons">
+      <button onclick="scrollToSection('anna-daan')">Anna Daan</button>
+      <button onclick="scrollToSection('vidya-daan')">Vidya Daan</button>
+    </div>
+  </header>
+
+  <!-- Vidya Daan Section -->
+  <section id="vidya-daan">
+    <!--img src="vid_dn.png" alt="Education Support"--!>
+    <div class="content">
+      <h2 style="font-size: 50px;">Vidya Daan</h2>
+      <p>Empowering children through quality education and learning support.</p>
+      <ul>
+        <h2 style="color:red;">Total Students: <span class="highlight">202</span> (Girls: <span class="highlight">103</span>, Boys: <span class="highlight">99</span>)</h2>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 45px;">Annual Fee per Student: <span class="highlight"><br>₹38,000 P.A.</span></span><br>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
+          <button class="donate-btn" onclick="openForm()">Donate</button>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 45px;">Books & Learning Materials: <span class="highlight"><br>₹6,000 P.A.</span></span><br>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
+          <button class="donate-btn" onclick="openForm()">Donate</button>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 45px;">Total per Student per Year: <span class="highlight"><br>₹44,000 P.A.</span></span><br>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
+          <button class="donate-btn" onclick="openForm()">Donate</button>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 45px;">Annual Support Needed: <span class="highlight"><br>₹88,00,000</span></span><br>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
+          <button class="donate-btn" onclick="openForm()">Donate</button>
+        </div>
+      </ul>
+    </div>
+  </section>
+
+  <img src="curve_divi.png" alt="Divider" class="divider-img">
+
+  <!-- Anna Daan Section -->
+  <section id="anna-daan">
+    <img src="anna_dan.png" alt="Meal Support">
+    <div class="content">
+      <h2 style="font-size: 50px;">Anna Daan</h2>
+      <p>Providing nutritious meals to every student, every day.</p>
+      <ul>
+        <h2 style="color:red;">Total no of students <span class="highlight">850</span></h2>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 45px;"><span class="highlight">250</span> working days <span class="highlight"><br>Rs 25</span> per plate</span><br>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
+          <button class="donate-btn" onclick="openForm()">Donate</button>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 45px;"><span class="highlight">850</span> Students Cost <span class="highlight"><br>Rs 54 Lakh P.A</span></span><br>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
+          <button class="donate-btn" onclick="openForm()">Donate</button>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 45px;">Every <span class="highlight">100</span> Students <span class="highlight"><br>Rs 6.5 Lakh P.A</span></span><br>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
+          <button class="donate-btn" onclick="openForm()">Donate</button>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 45px;">Feed <span class="highlight">100</span> Students <br>per month <span class="highlight">Rs 50000</span></span><br>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
+          <button class="donate-btn" onclick="openForm()">Donate</button>
+        </div>
+        <div style="margin-bottom: 10px;">
+          <span style="font-size: 45px;">Feed <span class="highlight">100</span> Students<br> per day <span class="highlight">Rs 2500</span></span><br>
+          <label><input type="radio" name="tax_books" checked> 80G</label>
+          <button class="donate-btn" onclick="openForm()">Donate</button>
+        </div>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Donation Modal -->
+  <div id="donationModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h3>Donate Now</h3>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Mobile Number" required>
+        <input type="text" placeholder="PAN Number">
+        <input type="number" placeholder="Donation Amount ₹" required>
+        <textarea placeholder="Purpose / Message"></textarea>
+        <button type="submit" class="donate-btn">Submit Donation</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openForm() {
+      document.getElementById('donationModal').style.display = 'flex';
+    }
+
+    function closeForm() {
+      document.getElementById('donationModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('donationModal');
+      if (event.target === modal) {
+        closeForm();
+      }
+    }
+  </script>
+</body>
+</html>
